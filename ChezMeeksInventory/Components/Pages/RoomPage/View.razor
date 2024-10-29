@@ -1,0 +1,26 @@
+﻿@inherits FluxorComponent
+
+@if (Room.EditMode)
+{
+    <MudGrid>
+        <MudItem xs="1"></MudItem>
+        <MudItem xs="11">
+            <MudPaper Class="ps-4 mb-4">
+                <MudTextField @bind-value="@Room.Name" T="string" OnBlur="SaveName" Label="Room Name" Variant="Variant.Text" />
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+}
+else
+{
+    <MudGrid>
+        <MudItem xs="1"></MudItem>
+        <MudItem xs="11">
+            <MudPaper Class="ps-4 mb-4">
+                @Room.Name  
+                <MudIconButton Icon="@Icons.Material.Filled.Edit" aria-label="edit" OnClick="SetEditMode" /> 
+                <MudIconButton Icon="@Icons.Material.Filled.Delete" aria-label="delete" @onclick="DeleteRoom" />
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+}

@@ -1,0 +1,23 @@
+﻿@inherits LayoutComponentBase
+@* Required *@
+<MudThemeProvider IsDarkMode="true" Theme="ChezMeeks"/>
+<MudPopoverProvider />
+
+@* Needed for dialogs *@
+<MudDialogProvider />
+<Fluxor.Blazor.Web.StoreInitializer />
+
+@* Needed for snackbars *@
+<MudSnackbarProvider />
+<MudLayout>
+<div class="page">
+    <main>
+        <article class="content">
+            @Body
+        </article>
+    </main>
+    <div>
+        <NavMenu />
+    </div>
+</div>
+</MudLayout>

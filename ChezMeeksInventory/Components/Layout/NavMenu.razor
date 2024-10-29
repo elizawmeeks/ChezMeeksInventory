@@ -1,0 +1,12 @@
+﻿@using Fluxor.Blazor.Web.Components;
+@inherits FluxorComponent
+
+<MudAppBar Bottom="true" Fixed="true" Color="Color.Primary" Elevation="0">
+    <MudIconButton Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Edge="Edge.Start" Href="Home" />
+    <MudIconButton Icon="@Icons.Material.Filled.SensorDoor" Color="Color.Inherit" Edge="Edge.Start" Href="Rooms" />
+    <MudSpacer/>
+    <MudIconButton Icon="@Icons.Material.Filled.Search" Color="Color.Inherit" Edge="Edge.False" />
+    <MudSpacer/>
+    <MudIconButton Icon="@Icons.Material.Filled.SpaceDashboard" Color="Color.Inherit" Edge="Edge.End" />
+    <MudIconButton Icon="@Icons.Material.Filled.Discount" Color="Color.Inherit" Edge="Edge.End" />
+</MudAppBar>
