@@ -10,21 +10,13 @@ using static ChezMeeksInventory.Features.RoomFeature.State;
 
 namespace ChezMeeksInventory.Components.Pages.RoomPage
 {
-    //public partial class Edit : FluxorComponent
-    //{
-    //    public Edit() 
-    //    {
-    //        _name = Room.Name;
-    //    }
-    //    [Parameter] public RoomRequest Room { get; set; } = RoomRequest.Empty();
-    //    [Inject] public Fluxor.IDispatcher FluxorDispatcher { get; set; } = default!;
-    //    private string _name { get; set; }
+    public partial class Edit : FluxorComponent
+    {
+        [Parameter] public RoomRequest Room { get; set; } = RoomRequest.Empty();
+        [Parameter] public EventCallback<RoomRequest> SaveRoomCallback { get; set; } = default!;
+        [Inject] public Fluxor.IDispatcher FluxorDispatcher { get; set; } = default!;
 
-    //    public async Task SaveName()
-    //    {
-    //        Room = RoomRequest.SetEditMode(Room, false);
-    //        FluxorDispatcher.Dispatch(new RoomFeature.SaveRoom(Room, _name));
-    //        await Task.CompletedTask;
-    //    }
-    //}
+        public async Task SaveRoom() =>
+            await SaveRoomCallback.InvokeAsync(Room);
+    }
 }

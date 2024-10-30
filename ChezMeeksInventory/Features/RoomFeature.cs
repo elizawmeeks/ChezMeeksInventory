@@ -38,7 +38,7 @@ namespace ChezMeeksInventory.Features
                 }
                 public Guid ID { get; init; }
                 public string Name { get; set; } = default!;
-                public bool EditMode { get; set; } = false;
+                public bool EditMode { get; init; } = false;
                 public static RoomRequest Empty() => new (Guid.NewGuid(), string.Empty);
                 public static RoomRequest From(Room room) =>
                     new(room.ID, room.Name);

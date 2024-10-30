@@ -12,5 +12,12 @@
 
 @foreach(var room in State.Value.Rooms)
 {
-    <View Room="room" DeleteRoomCallback="@DeleteRoom"></View>
+    if (room.EditMode)
+    {
+        <Edit Room="room" SaveRoomCallback="@SaveRoom"></Edit>
+    }
+    else
+    {
+        <View Room="room" DeleteRoomCallback="@DeleteRoom" SetRoomToEditModeCallback="@SetRoomToEditMode"></View>
+    }
 }

@@ -16,22 +16,15 @@ namespace ChezMeeksInventory.Components.Pages.RoomPage
     {
         [Parameter] public RoomRequest Room { get; set; } = RoomRequest.Empty();
         [Parameter] public EventCallback<RoomRequest> DeleteRoomCallback { get; set; } = default!;
+        //[Parameter] public EventCallback<RoomRequest> SaveRoomCallback { get; set; } = default!;
+        [Parameter] public EventCallback<RoomRequest> SetRoomToEditModeCallback { get; set; } = default!;
         [Inject] public Fluxor.IDispatcher FluxorDispatcher { get; set; } = default!;
-        private string _name = string.Empty;
 
-        public async Task SaveName()
-        {
-            Room = RoomRequest.SetEditMode(Room, false);
-            FluxorDispatcher.Dispatch(new RoomFeature.SaveRoom(Room));
-            await Task.CompletedTask;
-        }
+        public async Task SetRoomToEditMode() => 
+            await SetRoomToEditModeCallback.InvokeAsync(Room);
 
-        public async Task SetEditMode()
-        {
-            Room = RoomRequest.SetEditMode(Room, true);
-            FluxorDispatcher.Dispatch(new RoomFeature.SetRoomToEditMode(Room.ID));
-            await Task.CompletedTask;
-        }
+        //public async Task SaveRoom() => 
+        //    await SaveRoomCallback.InvokeAsync(Room);
 
         public async Task DeleteRoom() => 
             await DeleteRoomCallback.InvokeAsync(Room);

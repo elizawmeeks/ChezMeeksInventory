@@ -1,14 +1,7 @@
 ﻿using ChezMeeksInventory.Features;
-using Common.Domain;
 using Fluxor;
 using Fluxor.Blazor.Web.Components;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static ChezMeeksInventory.Features.RoomFeature.State;
 
 namespace ChezMeeksInventory.Components.Pages.RoomPage
@@ -27,9 +20,13 @@ namespace ChezMeeksInventory.Components.Pages.RoomPage
         public void AddRoomComponent() =>
             FluxorDispatcher.Dispatch(new RoomFeature.AddRoomComponent());
 
-        public void DeleteRoom(RoomRequest room)
-        {
+        public void DeleteRoom(RoomRequest room) => 
             FluxorDispatcher.Dispatch(new RoomFeature.DeleteRoom(room));
-        }
+
+        public void SaveRoom(RoomRequest room) =>
+            FluxorDispatcher.Dispatch(new RoomFeature.SaveRoom(room));
+
+        public void SetRoomToEditMode(RoomRequest room) =>
+            FluxorDispatcher.Dispatch(new RoomFeature.SetRoomToEditMode(room.ID));
     }
 }
