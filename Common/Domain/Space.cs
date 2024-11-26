@@ -10,7 +10,6 @@ namespace Common.Domain
     {
         public Space() { }
         public Guid ID { get; set; }
-        //public Guid RoomID { get; set; } = default!;
         public string Name { get; set; } = default!;
 
         public Room Room { get; set; } = default!;

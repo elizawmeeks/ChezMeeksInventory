@@ -87,3 +87,11 @@ h1:focus {
         padding-left: env(safe-area-inset-left);
     }
 }
+
+.room:nth-child(even){
+    margin-inline-start: 32px !important;
+}
+
+.room:nth-child(odd){
+    margin-inline-end: 32px !important;
+}

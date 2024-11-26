@@ -1,9 +1,9 @@
 ﻿@inherits FluxorComponent
-<MudGrid>
+@* <MudGrid>
     <MudItem xs="1"></MudItem>
-    <MudItem xs="11">
-        <MudPaper Class="ps-4 mb-4">
+    <MudItem xs="11"> *@
+        <MudPaper Class="ps-4 mb-4 room">
             <MudTextField @bind-Value="Room.Name" T="string" OnBlur="SaveRoom" Label="Room Name" Variant="Variant.Text" />
         </MudPaper>
-    </MudItem>
-</MudGrid>
+@*     </MudItem>
+</MudGrid> *@
